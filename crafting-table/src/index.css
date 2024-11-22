@@ -1,0 +1,50 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.crafting-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.item img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.crafting-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 50px);
+  grid-template-rows: repeat(3, 50px);
+  gap: 5px;
+}
+
+.grid-cell {
+  width: 50px;
+  height: 50px;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #888;
+}
+
+.grid-cell img {
+  width: 100%;
+  height: 100%;
+}
+
+.result-slot {
+  margin-top: 20px;
+}
