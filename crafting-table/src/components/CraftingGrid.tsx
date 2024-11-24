@@ -29,14 +29,12 @@ const CraftingGrid: React.FC<CraftingGridProps> = ({ grid, updateGrid }) => {
         drop: (item: { name: string }, monitor) => {
             const { x, y } = monitor.getClientOffset()!;
             const gridElement = document.querySelector('.crafting-grid') as HTMLElement;
-            const gridRect = gridElement.getBoundingClientRect();  // Get the grid's position on the screen
+            const gridRect = gridElement.getBoundingClientRect();  
 
-            // Calculate the relative position inside the grid (adjusting for the grid's offset)
-            const cellSize = gridElement.offsetWidth / 3;  // Dynamically calculate cell size based on grid width
+            const cellSize = gridElement.offsetWidth / 3;  
             const row = Math.floor((y - gridRect.top) / cellSize);
             const col = Math.floor((x - gridRect.left) / cellSize);
 
-            // Ensure the drop is within the grid's bounds (3x3 grid)
             if (row >= 0 && row < 3 && col >= 0 && col < 3) {
                 updateGrid(row, col, item.name);
             }
