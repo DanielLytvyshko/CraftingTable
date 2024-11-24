@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { DndProvider } from "react-dnd"; 
+import { HTML5Backend } from "react-dnd-html5-backend"; 
 import CraftingGrid from "./components/CraftingGrid";
 import Items from "./components/Items";
 import ResultSlot from "./components/ResultSlot";
@@ -19,14 +21,16 @@ const App = () => {
   };
 
   return (
-    <div className="app">
-      <h1 className="title">Minecraft Crafting Table</h1>
-      <div className="crafting-container">
-        <Items updateGrid={updateGrid} />
-        <CraftingGrid grid={grid} updateGrid={updateGrid} />
-        <ResultSlot result={result} />
+    <DndProvider backend={HTML5Backend}> 
+      <div className="app">
+        <h1 className="title">Minecraft Crafting Table</h1>
+        <div className="crafting-container">
+          <Items updateGrid={updateGrid} />
+          <CraftingGrid grid={grid} updateGrid={updateGrid} />
+          <ResultSlot result={result} />
+        </div>
       </div>
-    </div>
+    </DndProvider>
   );
 };
 

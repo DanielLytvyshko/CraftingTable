@@ -1,12 +1,26 @@
 export const recipes = [
     {
-        name: "wooden_plank",
-        pattern: [
-            ["log", null, null],
+        patterns: [
+            ["wooden_plank", null, null],
+            ["wooden_plank", null, null],
+            [null, null, null],
+        ],
+        result: "stick",
+    },
+    {
+        patterns: [
+            ["oak_log", null, null],
             [null, null, null],
             [null, null, null],
         ],
-        result: { name: "wooden_plank", quantity: 4 },
+        result: "wooden_plank",
     },
-    // Add more recipes
+    {
+        patterns: [
+            ["stone", "stone", "stone"],
+            [null, "stick", null],
+            [null, "stick", null],
+        ],
+        result: "stone_pickaxe",
+    },
 ];

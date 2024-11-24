@@ -1,12 +1,36 @@
 import React from "react";
+import './ResultSlot.css';
+import stickImage from '../assets/stick.png';
+import stoneImage from '../assets/stone.png';
+import oakLogImage from '../assets/oak_log.png';
+import woodenPlankImage from '../assets/wooden_plank.png';
+import stonePickaxeImage from '../assets/Stone_Pickaxe.png';
 
-const ResultSlot = ({ result }: { result: string | null }) => {
+const itemImages: Record<string, string> = {
+    stick: stickImage,
+    stone: stoneImage,
+    oak_log: oakLogImage,
+    wooden_plank: woodenPlankImage,
+    stone_pickaxe: stonePickaxeImage
+};
+
+interface ResultSlotProps {
+    result: string | null;
+}
+
+const ResultSlot: React.FC<ResultSlotProps> = ({ result }) => {
+    const imageSrc = result ? itemImages[result] : null;
+
     return (
         <div className="result-slot">
-            {result ? (
-                <img src={`/assets/${result}.png`} alt={result} />
+            {imageSrc ? (
+                <img
+                    src={imageSrc}
+                    alt={result || "result"}
+                    className="result-image"
+                />
             ) : (
-                <span>?</span>
+                <span className="placeholder">?</span>
             )}
         </div>
     );

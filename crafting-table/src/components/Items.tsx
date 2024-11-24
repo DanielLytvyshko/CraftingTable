@@ -1,16 +1,22 @@
 import React from "react";
+import { useDrag } from "react-dnd";
+import './itemsStyling.css';
 
 interface ItemsProps {
     updateGrid: (row: number, col: number, item: string) => void;
 }
 
-const itemImages = {
-    stick: "../assets/stick.png",
-    stone: "../assets/stone.png",
-    wooden_plank: "../assets/wooden_plank.png",
-    oak_log: "../assets/oak_log.png",
-};
+import stickImage from '../assets/stick.png';
+import stoneImage from '../assets/stone.png';
+import oakLogImage from '../assets/oak_log.png';
+import woodenPlankImage from '../assets/wooden_plank.png';
 
+const itemImages: Record<string, string> = {
+    stick: stickImage,
+    stone: stoneImage,
+    oak_log: oakLogImage,
+    wooden_plank: woodenPlankImage,
+};
 
 const Items: React.FC<ItemsProps> = ({ updateGrid }) => {
     const items = Object.keys(itemImages);
@@ -18,15 +24,37 @@ const Items: React.FC<ItemsProps> = ({ updateGrid }) => {
     return (
         <div className="items">
             {items.map((item) => (
-                <div
-                    key={item}
-                    className="item"
-                    onClick={() => updateGrid(0, 0, item)} // Example: selects the first slot
-                >
-                    <img src={itemImages[item as keyof typeof itemImages]} alt={item} />
+                <div key={item} className="item">
+                    <DraggableItem name={item} />
                 </div>
             ))}
         </div>
+    );
+};
+
+const DraggableItem: React.FC<{ name: string }> = ({ name }) => {
+    const [{ isDragging }, drag] = useDrag({
+        type: "ITEM",
+        item: { name },
+        collect: (monitor) => ({
+            isDragging: monitor.isDragging(),
+        }),
+    });
+
+    return (
+        <>
+            <div
+                ref={drag}
+                className="item-image"
+                style={{
+                    opacity: isDragging ? 0.5 : 1,
+                    cursor: "move",
+                }}
+            >
+                <img src={itemImages[name as keyof typeof itemImages]} alt={name} />
+            </div> 
+            <hr className="hr-vertical" />
+        </>
     );
 };
 
