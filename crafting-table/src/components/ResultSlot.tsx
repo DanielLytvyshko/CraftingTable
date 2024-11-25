@@ -5,13 +5,15 @@ import stoneImage from '../assets/stone.png';
 import oakLogImage from '../assets/oak_log.png';
 import woodenPlankImage from '../assets/wooden_plank.png';
 import stonePickaxeImage from '../assets/Stone_Pickaxe.png';
+import stoneSwordImage from '../assets/stone_sword.png';
 
 const itemImages: Record<string, string> = {
     stick: stickImage,
     stone: stoneImage,
     oak_log: oakLogImage,
     wooden_plank: woodenPlankImage,
-    stone_pickaxe: stonePickaxeImage
+    stone_pickaxe: stonePickaxeImage,
+    stone_sword: stoneSwordImage,
 };
 
 interface ResultSlotProps {

@@ -7,20 +7,20 @@ interface CraftingGridProps {
     updateGrid: (row: number, col: number, item: string) => void;
 }
 
+import minecraftarrowpointer from '../assets/craftingarrow.webp';
+
 import stickImage from '../assets/stick.png';
 import stoneImage from '../assets/stone.png';
 import oakLogImage from '../assets/oak_log.png';
 import woodenPlankImage from '../assets/wooden_plank.png';
 import stonePickaxeImage from '../assets/Stone_Pickaxe.png';
 
-import minecraftarrowpointer from '../assets/craftingarrow.webp';
-
 const itemImages: Record<string, string> = {
     stick: stickImage,
     stone: stoneImage,
     oak_log: oakLogImage,
     wooden_plank: woodenPlankImage,
-    stone_pickaxe: stonePickaxeImage
+    stone_pickaxe: stonePickaxeImage,
 };
 
 const CraftingGrid: React.FC<CraftingGridProps> = ({ grid, updateGrid }) => {
