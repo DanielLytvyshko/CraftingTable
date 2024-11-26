@@ -2,17 +2,54 @@
   user-select: none;
 }
 
+@font-face {
+  font-family: 'Minecraft';
+  src: url('/MinecraftTen-VGORe.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./assets/BackgroundMinecraft.jpg');
+  background-repeat: no-repeat;
+  background-size: cover; 
+  background-position: right 0rem top;
+  filter: blur(3px) brightness(1.2);
+  z-index: -1;
+}
+
+body {
+  font-family: 'Minecraft', sans-serif;
+  margin: 0;
+}
+
 .app {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: Arial, sans-serif;
+  font-family: 'Minecraft', sans-serif;
+}
+
+.title {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: hsl(0, 0%, 80%);
+  margin-bottom: 3rem;
+  margin-top: -10rem;
 }
 
 .crafting-container {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 2rem;
+  width: 100%;
+  justify-content: center; 
 }
 
 .items {
@@ -29,14 +66,14 @@
 
 .crafting-grid {
   display: grid;
-  grid-template-columns: repeat(3, 50px);
-  grid-template-rows: repeat(3, 50px);
-  gap: 5px;
+  grid-template-columns: repeat(3, 4rem);
+  grid-template-rows: repeat(3, 4rem);
+  gap: 0.5rem;
 }
 
 .grid-cell {
-  width: 50px;
-  height: 50px;
+  width: 4rem;
+  height: 4rem;
   background-color: #ccc;
   display: flex;
   align-items: center;
@@ -51,4 +88,40 @@
 
 .result-slot {
   margin-top: 20px;
+}
+
+.CraftingBox {
+  background-color: hsl(0, 0%, 21%);
+  border: 2px solid hsl(0, 0%, 79%);
+  margin: 2rem auto;
+  width: 75rem;
+  height: 45rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: center; 
+  padding: 2rem;
+  color: white;
+}
+
+.reset-btn {
+  background-color: #4CAF50; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 20px; 
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 5rem;
+}
+
+.reset-btn:hover {
+  background-color: #45a049; 
+}
+
+.reset-btn:active {
+  background-color: #388e3c; 
 }

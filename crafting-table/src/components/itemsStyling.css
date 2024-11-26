@@ -13,6 +13,7 @@
     background-color: #f9f9f9;
     border-right: 1px solid #ccc; 
     padding-right: 10px; 
+    height: 100%;
 }
 
 .item {
@@ -27,8 +28,8 @@
 
 .item img {
     margin-right: 5px; 
-    width: 40px; 
-    height: 40px;
+    width: 50px; 
+    height: auto;
 }
 
 .item:hover {
@@ -39,10 +40,10 @@
 .hr-vertical {
     position: fixed;
     top: -1vh;
-    left: 90px;
+    left: 89.5px;
     height: 100vh;
     width: 1px;
-    background-color: #ccc;
+    background-color: #969696;
     z-index: 10;
 }
 
